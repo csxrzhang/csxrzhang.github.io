@@ -1,11 +1,18 @@
 {% if page.author and site.data.authors[page.author] %}
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
+/* 头像的样式，使其为正圆形 */
 
+.avatar {
+  width: 150px;    /* 设定头像的宽度 */
+  height: 150px;   /* 设定头像的高度为相同值 */
+  object-fit: cover; /* 确保图片保持比例并覆盖整个容器，不会拉伸变形 */
+  border-radius: 50%; /* 使图片变为圆形 */
+}
 <div itemscope itemtype="http://schema.org/Person" class="profile_box">
 
   <div class="author__avatar">
-    <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
+    <img src="{{ author.avatar }}" class="avatar" alt="{{ author.name }}">
   </div>
 
   <div class="author__content">
